@@ -128,14 +128,10 @@ public class ExpressionEvaluator implements IExpressionEvaluator{
 	}
 	public int evaluate(String expression) {
 		//check if there are some variable in the postfix and ask the user to give these variables a value
-		boolean noChar = false; 
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
-		while(!noChar) {
-			noChar=true;
 			for(int i=0; i<expression.length() ; i++) {
 				if((expression.charAt(i) <= 'z' && expression.charAt(i) >='a') || (expression.charAt(i) <= 'Z' && expression.charAt(i) >= 'A')) {
-					noChar = false;
 					System.out.println("enter a value for "+ expression.charAt(i));
 					String input = scan.nextLine();
 					boolean acceptedValue = false ;
@@ -152,7 +148,6 @@ public class ExpressionEvaluator implements IExpressionEvaluator{
 					expression = expression.replace(Character.toString(expression.charAt(i)), input);
 				}
 			}
-		}
 		//evaluation of numeric postfix 
 		Stack digits = new Stack();
 		String[] postfix = expression.split("\\s+");
