@@ -1,5 +1,9 @@
 package eg.edu.alexu.csd.datastructure.stack.cs78;
 
+/**
+ * @author Mostafa Ahmed Kamal
+ * Stacks implementation using linked-lists   
+ */
 public class Stack implements IStack{
 	Node top;
 	int size=0;
@@ -16,6 +20,9 @@ public class Stack implements IStack{
 		}
 	}
 
+	/**@return value
+	 *return the last element inserted in the stack and removes it from the Stack
+	 */
 	public Object pop() {
 		if(size<=0) {
 			throw new RuntimeException("Invalid operation , Empty Stack");
@@ -29,6 +36,9 @@ public class Stack implements IStack{
 		
 	}
 
+	/**
+	 *returns the last element inserted in the Stack without removing it 
+	 */
 	public Object peek() {
 		if(top== null) {
 			throw new RuntimeException("Invalid operation , Empty Stack");
@@ -37,6 +47,9 @@ public class Stack implements IStack{
 		return top.value;
 	}
 
+	/**@param element
+	 *pushes an object to the stack
+	 */
 	public void push(Object element) {
 		if(top==null)
 			top = new Node(element);
@@ -47,10 +60,16 @@ public class Stack implements IStack{
 		size++;
 	}
 
+	/**
+	 *returns true if and only if the stack is empty
+	 */
 	public boolean isEmpty() {
 		return (size<=0);
 	}
 
+	/**
+	 *returns the number of elements in the stack
+	 */
 	public int size() {
 		return size;
 	}

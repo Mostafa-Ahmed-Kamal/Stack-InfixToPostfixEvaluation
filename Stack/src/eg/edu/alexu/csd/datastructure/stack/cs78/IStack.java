@@ -16,7 +16,7 @@ public interface IStack {
 	/**
 	* Pushes an item onto the top of this stack.
 	*
-	* @param object
+	* @param element
 	* to insert
 	*/
 	public void push(Object element);

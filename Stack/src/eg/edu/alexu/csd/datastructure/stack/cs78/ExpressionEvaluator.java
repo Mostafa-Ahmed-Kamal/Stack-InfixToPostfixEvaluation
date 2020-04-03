@@ -2,7 +2,17 @@ package eg.edu.alexu.csd.datastructure.stack.cs78;
 
 import java.util.Scanner;
 
+/**
+ * @author Mostafa Ahmed Kamal
+ * expression evaluator a program to evaluate an equation using the infix to postfix method
+ */
 public class ExpressionEvaluator implements IExpressionEvaluator{
+	/**
+	 * @param op
+	 * takes a character (op) and checks its priority 
+	 * () ---- ^ ---- *,/,% ---- +,-
+	 * @return priority value
+	 */
 	public int priority(char op) {
 		//operators priority
 		if(op == '+' || op =='-')
@@ -14,6 +24,12 @@ public class ExpressionEvaluator implements IExpressionEvaluator{
 		else
 			return 0;
 	}
+	/**
+	 * @param expression 
+	 * takes an equation as a string
+	 * @return postfix
+	 * the postfix form the expression entered by the user
+	 */
 	public String infixToPostfix(String expression) {
 		String postfix ="";
 		Stack operations = new Stack();
@@ -98,6 +114,16 @@ public class ExpressionEvaluator implements IExpressionEvaluator{
 		}
 		return postfix;
 	}
+	/**
+	 *  a + b --- result 
+	 * @param op1
+	 * first element in the operation (a)
+	 * @param op2
+	 * second element in the operation (b)
+	 * @param operand
+	 * the operand between these two numbers (+)
+	 * @return result(float)
+	 */
 	public float operation(float op1 , float op2 , String operand) {
 		//do the operation according to the operator and return the result to be pushed to the stack
 		if(operand.contentEquals("+"))
@@ -126,6 +152,11 @@ public class ExpressionEvaluator implements IExpressionEvaluator{
 			return  (float) Math.pow(op1 , op2);
 		else return 0;
 	}
+	/**
+	 *@param expression 
+	 *takes the postfix expression 
+	 *@return an integer represents the value of the result of this expression
+	 */
 	public int evaluate(String expression) {
 		//check if there are some variable in the postfix and ask the user to give these variables a value
 		@SuppressWarnings("resource")
